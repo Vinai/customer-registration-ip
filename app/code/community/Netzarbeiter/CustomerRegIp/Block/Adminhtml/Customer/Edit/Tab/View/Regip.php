@@ -45,14 +45,22 @@ class Netzarbeiter_CustomerRegIp_Block_Adminhtml_Customer_Edit_Tab_View_Regip
 	 *
 	 * @return string
 	 */
-	public function getCustomerRegIp()
+	public function getCustomerRegIpHtml()
 	{
 		$remoteAddr = $this->getCustomer()->getRegistrationRemoteIp();
+		// DEBUG: $remoteAddr = dns_get_record('google.com', DNS_A); $remoteAddr = $remoteAddr[0]['ip'];
 		if (empty($remoteAddr))
 		{
-			$remoteAddr = $this->__('- REGISTRATION IP UNAVAILABLE -');
+			$html = $this->__('- REGISTRATION IP UNAVAILABLE -');
 		}
-		return $remoteAddr;
+		else
+		{
+			$url = 'http://www.ip2location.com/' . $remoteAddr;
+			$title = $this->__('Check %s location', $remoteAddr);
+			$link = sprintf('<a href="%s" target="_blank" title="%s" rel="nofollow">%%s</a>', $url, $title);
+			$html = sprintf($link, $remoteAddr) . ' (' . sprintf($link, gethostbyaddr($remoteAddr)) . ')';
+		}
+		return $html;
 	}
 
 	/**
