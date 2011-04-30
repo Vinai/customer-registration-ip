@@ -1,0 +1,10 @@
+#
+# Netzarbeiter_CustomerRegIp modman file
+#
+
+app/etc/modules/Netzarbeiter_CustomerRegIp.xml app/etc/modules/Netzarbeiter_CustomerRegIp.xml
+app/code/community/Netzarbeiter/CustomerRegIp app/code/community/Netzarbeiter/CustomerRegIp
+app/design/adminhtml/default/default/layout/netzarbeiter/customerregip.xml app/design/adminhtml/default/default/layout/netzarbeiter/customerregip.xml
+app/design/adminhtml/default/default/template/netzarbeiter/customerregip app/design/adminhtml/default/default/template/netzarbeiter/customerregip
+
+app/locale/de_DE/Netzarbeiter_CustomerRegIp.csv app/locale/de_DE/Netzarbeiter_CustomerRegIp.csv
