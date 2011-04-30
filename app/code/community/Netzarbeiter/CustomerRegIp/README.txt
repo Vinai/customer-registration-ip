@@ -23,6 +23,16 @@ registered or created.
 
 The Extension was designed to be used together with the Netzarbeiter_CustomerActivation extension.
 
+UNINSTALL
+
+To uninstall this extension you need to run the following SQL after removing the
+extension files:
+
+  DELETE FROM eav_attribute WHERE attribute_code = 'registration_remote_ip';
+  DELETE FROM core_resource WHERE code = 'customerregip_setup';
+
+
+
 Thanks to Diana from TradiArt for sponsoring this extension!
 
 
