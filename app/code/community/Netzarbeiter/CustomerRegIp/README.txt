@@ -23,6 +23,10 @@ registered or created.
 
 The Extension was designed to be used together with the Netzarbeiter_CustomerActivation extension.
 
+To include the customers registration email address in transactional email templates
+where the customer object is available you can use {{var customer.getRegistrationRemoteIp()}}
+
+
 UNINSTALL
 
 To uninstall this extension you need to run the following SQL after removing the
