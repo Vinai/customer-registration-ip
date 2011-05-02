@@ -18,7 +18,7 @@
  */
 
 class Netzarbeiter_CustomerRegIp_Block_Adminhtml_Customer_Edit_Tab_View_Regip
-	extends Mage_Core_Block_Template
+	extends Mage_Adminhtml_Block_Template
 {
 	/**
 	 * Return the current customer model
@@ -40,6 +40,14 @@ class Netzarbeiter_CustomerRegIp_Block_Adminhtml_Customer_Edit_Tab_View_Regip
 		return $this->getCustomer()->getStoreId() == 0;
 	}
 
+	public function getCustomerRegIp()
+	{
+		$remoteAddr = $this->getCustomer()->getRegistrationRemoteIp();
+		// DEBUG:
+		// $remoteAddr = dns_get_record('google.com', DNS_A); $remoteAddr = $remoteAddr[0]['ip'];
+		return $remoteAddr;
+	}
+
 	/**
 	 * Return the customer registration ip
 	 *
@@ -47,20 +55,35 @@ class Netzarbeiter_CustomerRegIp_Block_Adminhtml_Customer_Edit_Tab_View_Regip
 	 */
 	public function getCustomerRegIpHtml()
 	{
-		$remoteAddr = $this->getCustomer()->getRegistrationRemoteIp();
-		// DEBUG: $remoteAddr = dns_get_record('google.com', DNS_A); $remoteAddr = $remoteAddr[0]['ip'];
-		if (empty($remoteAddr))
+		$remoteAddr = $this->getCustomerRegIp();
+		if (! $this->isValidIp())
 		{
 			$html = $this->__('- REGISTRATION IP UNAVAILABLE -');
 		}
 		else
 		{
-			$url = 'http://www.ip2location.com/' . $remoteAddr;
-			$title = $this->__('Check %s location', $remoteAddr);
-			$link = sprintf('<a href="%s" target="_blank" title="%s" rel="nofollow">%%s</a>', $url, $title);
-			$html = sprintf($link, $remoteAddr) . ' (' . sprintf($link, gethostbyaddr($remoteAddr)) . ')';
+			$html = sprintf('%s', $remoteAddr);
 		}
 		return $html;
+	}
+
+	/**
+	 *
+	 * @return bool
+	 */
+	public function isValidIp()
+	{
+		$remoteAddr = $this->getCustomerRegIp();
+		return ! empty($remoteAddr);
+	}
+
+	/**
+	 *
+	 * @return string
+	 */
+	public function getAjaxLookupUrl()
+	{
+		return Mage::helper('adminhtml')->getUrl('adminhtml/customerregip/lookup', array('ip' => $this->getCustomerRegIp()));
 	}
 
 	/**
@@ -75,5 +98,14 @@ class Netzarbeiter_CustomerRegIp_Block_Adminhtml_Customer_Edit_Tab_View_Regip
 			return '';
 		}
 		return parent::_toHtml();
+	}
+
+	/**
+	 *
+	 * @return bool
+	 */
+	public function isIpInfoDbEnabled()
+	{
+		return (bool) trim(Mage::getStoreConfig('customerregip/general/ipinfodb_api_key'));
 	}
 }

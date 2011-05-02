@@ -21,7 +21,7 @@
 <config>
 	<modules>
 		<Netzarbeiter_CustomerRegIp>
-			<version>0.1.1</version>
+			<version>0.1.2</version>
 		</Netzarbeiter_CustomerRegIp>
 	</modules>
 	<global>
@@ -35,6 +35,11 @@
 				<class>Netzarbeiter_CustomerRegIp_Block</class>
 			</customerregip>
 		</blocks>
+		<helpers>
+			<customerregip>
+				<class>Netzarbeiter_CustomerRegIp_Helper</class>
+			</customerregip>
+		</helpers>
 		<resources>
 			<customerregip_setup>
 				<setup>
@@ -62,4 +67,22 @@
 			</modules>
 		</translate>
 	</adminhtml>
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<customerregip after="Mage_Adminhtml">Netzarbeiter_CustomerRegIp_Adminhtml</customerregip>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+	<default>
+		<customerregip>
+			<general>
+				<ipinfodb_api_key></ipinfodb_api_key>
+			</general>
+		</customerregip>
+	</default>
 </config>

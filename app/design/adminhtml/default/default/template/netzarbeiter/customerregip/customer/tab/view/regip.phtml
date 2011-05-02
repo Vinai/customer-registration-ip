@@ -31,7 +31,33 @@
         <table cellspacing="2" class="box-left">
             <tr>
                 <td><strong><?php echo $this->__('Remote Address:') ?></strong> <?php echo $this->getCustomerRegIpHtml() ?></td>
+				<?php if ($this->isValidIp()): ?>
+				<td>
+					<?php if ($this->isIpInfoDbEnabled()): ?>
+					<button onclick="customerRegIp.lookup(); return false;"
+							title="<?php echo $this->__('Check the location of %s via AJAX', $this->getCustomerRegIp()) ?>"><span><?php echo $this->__('IPInfoDB Lookup') ?></span></button>
+					<?php endif; ?>
+					<button onclick="window.open('http://www.ip2location.com/<?php echo $this->getCustomerRegIp() ?>','lookup',''); return false;"
+							title="<?php echo $this->__('Check the location of %s in a popup', $this->getCustomerRegIp()) ?>"><span><?php echo $this->__('ip2location.com Lookup') ?></span></button>
+				</td>
+				<?php endif; ?>
             </tr>
         </table>
+        <div id="customerregip-lookup-result" style="display: none;"></div>
     </fieldset>
+	<script type="text/javascript">
+if (typeof CustomerRegIp=='undefined') {
+	var CustomerRegIp = Class.create({
+		initialize: function(){
+			this.url = '<?php echo $this->getAjaxLookupUrl() ?>';
+			this.targetId = 'customerregip-lookup-result';
+		},
+		lookup: function(){
+			$(this.targetId).show();
+			new Ajax.Updater(this.targetId, this.url);
+		}
+	});
+}
+var customerRegIp = new CustomerRegIp();
+	</script>
 </div>

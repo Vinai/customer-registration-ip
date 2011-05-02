@@ -26,6 +26,14 @@ The Extension was designed to be used together with the Netzarbeiter_CustomerAct
 To include the customers registration email address in transactional email templates
 where the customer object is available you can use {{var customer.getRegistrationRemoteIp()}}
 
+If you register a (free or commercial) API key for http://ipinfodb.com/ you can
+configure it at
+Admin > System Configuration > Netzarbeiter Extensions > Customer Registration IP
+
+If a API key is registered a button to query the API will beavailable beside the
+customers IP address. Regardless of the API key settings, a link to lookup addresses
+via http://ip2location.com/ in a new window is always displayed.
+
 
 UNINSTALL
 
@@ -37,7 +45,7 @@ extension files:
 
 
 
-Thanks to Diana from TradiArt for sponsoring this extension!
+Thanks to Diana from TradiArt for initially sponsoring this extension!
 
 
 KNOWN BUGS:

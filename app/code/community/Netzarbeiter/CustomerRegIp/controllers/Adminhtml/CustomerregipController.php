@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<?php
 /**
  * Magento
  *
@@ -17,16 +16,29 @@
  * copyright  Copyright (c) 2011 Vinai Kopp http://netzarbeiter.com/
  * license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
--->
-<layout>
-	<adminhtml_customer_edit>
-		<reference name="customer_edit_tab_view">
-			<block type="customerregip/adminhtml_customer_edit_tab_view_regip" name="customerregip" template="netzarbeiter/customerregip/customer/tab/view/regip.phtml" before="sales"/>
-		</reference>
-	</adminhtml_customer_edit>
-	
-	<adminhtml_customerregip_lookup>
-		<remove name="root"/>
-		<block type="customerregip/adminhtml_customer_edit_tab_view_regip_lookup" name="customerregip_lookup" output="toHtml" template="netzarbeiter/customerregip/customer/tab/view/regip/lookup.phtml"/>
-	</adminhtml_customerregip_lookup>
-</layout>
+
+class Netzarbeiter_CustomerRegIp_Adminhtml_CustomerregipController
+	extends Mage_Adminhtml_Controller_Action
+{
+	/**
+	 * Lookup Ajax action
+	 */
+	public function lookupAction()
+	{
+		$this->loadLayout();
+		$this->getLayout()->getBlock('customerregip_lookup')->setIpAddress(
+			$this->getRequest()->getParam('ip', '')
+		);
+		$this->renderLayout();
+	}
+
+	/**
+	 * Bind to customer management ACL node
+	 *
+	 * @return bool
+	 */
+	protected function _isAllowed()
+	{
+		return Mage::getSingleton('admin/session')->isAllowed('customer/manage');
+	}
+}

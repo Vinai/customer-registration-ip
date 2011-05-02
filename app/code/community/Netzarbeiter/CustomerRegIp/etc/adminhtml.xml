@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Der Modulprogrammierer - Vinai Kopp, Rico Neitzel GbR
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the
+ * Der Modulprogrammierer - COMMERCIAL SOFTWARE LICENSE (v1.0) (DMCSL 1.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.der-modulprogrammierer.de/licenses/dmcsl-1.0.html
+ *
+ *
+ * @category   DerModPro
+ * @package    DerModPro_BCP
+ * @copyright  Copyright (c) 2010 Der Modulprogrammierer - Vinai Kopp, Rico Neitzel GbR
+ * @license    http://www.der-modulprogrammierer.de/licenses/dmcsl-1.0.html (DMCSL 1.0)
+ */
+-->
+<config>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<customerregip translate="title" module="customerregip">
+										<title>Customer Registration IP</title>
+										<sort_order>120</sort_order>
+									</customerregip>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>
