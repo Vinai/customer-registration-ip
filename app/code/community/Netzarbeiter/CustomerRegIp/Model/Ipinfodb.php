@@ -93,9 +93,9 @@ class Netzarbeiter_CustomerRegIp_Model_Ipinfodb
 				'longitude' => $xml->longitude,
 				'timezone' => $xml->timeZone,
 			));
-
-			return $info;
 		}
+
+		return $info;
 	}
 
 	/**
