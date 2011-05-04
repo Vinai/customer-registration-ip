@@ -21,7 +21,7 @@
 <config>
 	<modules>
 		<Netzarbeiter_CustomerRegIp>
-			<version>0.1.2</version>
+			<version>0.1.3</version>
 		</Netzarbeiter_CustomerRegIp>
 	</modules>
 	<global>
