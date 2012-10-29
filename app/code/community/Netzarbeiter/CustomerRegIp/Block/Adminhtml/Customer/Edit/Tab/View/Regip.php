@@ -35,7 +35,7 @@ class Netzarbeiter_CustomerRegIp_Block_Adminhtml_Customer_Edit_Tab_View_Regip
 	 *
 	 * @return bool
 	 */
-	public function isCusatomerCreatedInAdmin()
+	public function isCustomerCreatedInAdmin()
 	{
 		return $this->getCustomer()->getStoreId() == 0;
 	}

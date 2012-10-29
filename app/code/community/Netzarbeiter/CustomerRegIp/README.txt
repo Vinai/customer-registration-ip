@@ -19,9 +19,10 @@
 USAGE
 
 This small extension saves the remote IP address from where the customer was
-registered or created.
+registered or created, and displays it on the admin customer dashboard.
 
-The Extension was designed to be used together with the Netzarbeiter_CustomerActivation extension.
+The Extension was designed to be used together with the Netzarbeiter_CustomerActivation
+extension, but works just fine on it's own.
 
 To include the customers registration email address in transactional email templates
 where the customer object is available you can use {{var customer.getRegistrationRemoteIp()}}

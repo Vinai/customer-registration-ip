@@ -1,0 +1,16 @@
+{
+    "name":"netzarbeiter/customerregip",
+    "type":"magento-module",
+    "license":"OSL-3.0",
+    "homepage":"git@github.com:Vinai/customer-registration-ip.git",
+    "description":"Magento extension to hide categories and products from customers depending on their customer group",
+    "authors":[
+        {
+            "name":"Vinai Kopp",
+            "email":"vinai@netzarbeiter.com"
+        }
+    ],
+    "require":{
+        "magento-hackathon/magento-composer-installer":"dev-master"
+    }
+}
