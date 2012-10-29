@@ -2,7 +2,7 @@
     "name":"netzarbeiter/customerregip",
     "type":"magento-module",
     "license":"OSL-3.0",
-    "homepage":"git://github.com/Vinai/customer-registration-ip.git",
+    "homepage":"https://github.com/Vinai/customer-registration-ip",
     "description":"Magento module to display a customer's IP used during registration",
     "authors":[
         {
