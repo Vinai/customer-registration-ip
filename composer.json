@@ -2,8 +2,8 @@
     "name":"netzarbeiter/customerregip",
     "type":"magento-module",
     "license":"OSL-3.0",
-    "homepage":"git@github.com:Vinai/customer-registration-ip.git",
-    "description":"Magento extension to hide categories and products from customers depending on their customer group",
+    "homepage":"git://github.com/Vinai/customer-registration-ip.git",
+    "description":"Magento module to display a customer's IP used during registration",
     "authors":[
         {
             "name":"Vinai Kopp",
