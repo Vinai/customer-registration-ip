@@ -19,10 +19,10 @@
  */
 -->
 <config>
-	<modules>
-		<Netzarbeiter_CustomerRegIp>
-			<active>true</active>
-			<codePool>community</codePool>
-		</Netzarbeiter_CustomerRegIp>
-	</modules>
+    <modules>
+        <Netzarbeiter_CustomerRegIp>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Netzarbeiter_CustomerRegIp>
+    </modules>
 </config>

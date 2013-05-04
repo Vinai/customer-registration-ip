@@ -18,38 +18,34 @@
  */
 
 class Netzarbeiter_CustomerRegIp_Model_Entity_Attribute_Backend_Remoteip
-	extends Mage_Eav_Model_Entity_Attribute_Backend_Abstract
+    extends Mage_Eav_Model_Entity_Attribute_Backend_Abstract
 {
-	/**
-	 * Set the remote IP address on new entities if available
-	 *
-	 * @param Mage_Core_Model_Abstract $object
-	 * @return null
-	 */
-	public function beforeSave($object)
-	{
-		if (!$object->getId() && is_null($object->getData($this->getAttribute()->getAttributeCode()))) {
-			$object->setData($this->getAttribute()->getAttributeCode(), $this->_getRemoteAddr());
-		}
-		return parent::beforeSave($object);
-	}
+    /**
+     * Set the remote IP address on new entities if available
+     *
+     * @param Mage_Core_Model_Abstract $object
+     * @return null
+     */
+    public function beforeSave($object)
+    {
+        if (!$object->getId() && is_null($object->getData($this->getAttribute()->getAttributeCode()))) {
+            $object->setData($this->getAttribute()->getAttributeCode(), $this->_getRemoteAddr());
+        }
+        return parent::beforeSave($object);
+    }
 
-	/**
-	 * Return the remote address if available
-	 *
-	 * @return string
-	 */
-	protected function _getRemoteAddr()
-	{
-		$remoteAddr = '';
-		try
-		{
-			$remoteAddr = Mage::helper('core/http')->getRemoteAddr();
-		}
-		catch (Exception $e)
-		{
-			$remoteAddr = (string) $e->getMessage();
-		}
-		return $remoteAddr;
-	}
+    /**
+     * Return the remote address if available
+     *
+     * @return string
+     */
+    protected function _getRemoteAddr()
+    {
+        try {
+            $remoteAddr = Mage::helper('core/http')->getRemoteAddr();
+        } catch (Exception $e) {
+            $remoteAddr = (string)$e->getMessage();
+        }
+        return $remoteAddr;
+    }
 }

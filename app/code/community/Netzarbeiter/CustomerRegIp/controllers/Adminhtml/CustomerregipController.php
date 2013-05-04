@@ -18,27 +18,27 @@
  */
 
 class Netzarbeiter_CustomerRegIp_Adminhtml_CustomerregipController
-	extends Mage_Adminhtml_Controller_Action
+    extends Mage_Adminhtml_Controller_Action
 {
-	/**
-	 * Lookup Ajax action
-	 */
-	public function lookupAction()
-	{
-		$this->loadLayout();
-		$this->getLayout()->getBlock('customerregip_lookup')->setIpAddress(
-			$this->getRequest()->getParam('ip', '')
-		);
-		$this->renderLayout();
-	}
+    /**
+     * Lookup Ajax action
+     */
+    public function lookupAction()
+    {
+        $this->loadLayout();
+        $this->getLayout()->getBlock('customerregip_lookup')->setIpAddress(
+            $this->getRequest()->getParam('ip', '')
+        );
+        $this->renderLayout();
+    }
 
-	/**
-	 * Bind to customer management ACL node
-	 *
-	 * @return bool
-	 */
-	protected function _isAllowed()
-	{
-		return Mage::getSingleton('admin/session')->isAllowed('customer/manage');
-	}
+    /**
+     * Bind to customer management ACL node
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('customer/manage');
+    }
 }

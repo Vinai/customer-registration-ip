@@ -19,40 +19,40 @@
  */
 -->
 <config>
-	<tabs>
-		<netzarbeiter translate="label" module="customerregip">
-			<label>Netzarbeiter Extensions</label>
-			<sort_order>505</sort_order>
-		</netzarbeiter>
-	</tabs>
-	<sections>
-		<customerregip translate="label" module="customerregip">
-			<label>Customer Registration IP</label>
-			<tab>netzarbeiter</tab>
-			<sort_order>120</sort_order>
-			<show_in_default>1</show_in_default>
-			<show_in_website>1</show_in_website>
-			<show_in_store>1</show_in_store>
-			<groups>
-				<general translate="label" module="customerregip">
-					<label>General</label>
-					<sort_order>10</sort_order>
-					<show_in_default>1</show_in_default>
-					<show_in_website>1</show_in_website>
-					<show_in_store>1</show_in_store>
-					<fields>
-						<ipinfodb_api_key translate="label comment" module="customerregip">
-							<label>IpInfoDb API Key</label>
-							<frontend_type>text</frontend_type>
-							<sort_order>10</sort_order>
-							<show_in_default>1</show_in_default>
-							<show_in_website>0</show_in_website>
-							<show_in_store>0</show_in_store>
-							<comment><![CDATA[Visit <a href="http://ipinfodb.com/register.php" target="_blank">ipinfodb.com</a> for a free API key.]]></comment>
-						</ipinfodb_api_key>
-					</fields>
-				</general>
-			</groups>
-		</customerregip>
-	</sections>
+    <tabs>
+        <netzarbeiter translate="label" module="customerregip">
+            <label>Netzarbeiter Extensions</label>
+            <sort_order>505</sort_order>
+        </netzarbeiter>
+    </tabs>
+    <sections>
+        <customerregip translate="label" module="customerregip">
+            <label>Customer Registration IP</label>
+            <tab>netzarbeiter</tab>
+            <sort_order>120</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="customerregip">
+                    <label>General</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <ipinfodb_api_key translate="label comment" module="customerregip">
+                            <label>IpInfoDb API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Visit <a href="http://ipinfodb.com/register.php" target="_blank">ipinfodb.com</a> for a free API key.]]></comment>
+                        </ipinfodb_api_key>
+                    </fields>
+                </general>
+            </groups>
+        </customerregip>
+    </sections>
 </config>

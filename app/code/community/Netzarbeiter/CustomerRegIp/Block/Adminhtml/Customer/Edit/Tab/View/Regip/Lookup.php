@@ -18,46 +18,41 @@
  */
 
 class Netzarbeiter_CustomerRegIp_Block_Adminhtml_Customer_Edit_Tab_View_Regip_Lookup
-	extends Mage_Adminhtml_Block_Template
+    extends Mage_Adminhtml_Block_Template
 {
 
-	/**
-	 * Lookup the IP
-	 *
-	 * @return Netzarbeiter_CustomerRegIp_Block_Adminhtml_Customer_Edit_Tab_View_Regip_Lookup
-	 */
-	protected function _beforeToHtml()
-	{
-		try
-		{
-			$info = Mage::getModel('customerregip/ipinfodb')->lookupIp($this->getIpAddress());
-			$this->setInfo($info);
-		}
-		catch (Exception $e)
-		{
-			Mage::logException($e);
-			$this->setInfo(new Varien_Object(array(
-				'country_name' => $this->__('Lookup Error: %s', $e->getMessage())
-			)));
-		}
-		return parent::_beforeToHtml();
-	}
+    /**
+     * Lookup the IP
+     *
+     * @return Netzarbeiter_CustomerRegIp_Block_Adminhtml_Customer_Edit_Tab_View_Regip_Lookup
+     */
+    protected function _beforeToHtml()
+    {
+        try {
+            $info = Mage::getModel('customerregip/ipinfodb')->lookupIp($this->getIpAddress());
+            $this->setInfo($info);
+        } catch (Exception $e) {
+            Mage::logException($e);
+            $this->setInfo(new Varien_Object(array(
+                'country_name' => $this->__('Lookup Error: %s', $e->getMessage())
+            )));
+        }
+        return parent::_beforeToHtml();
+    }
 
-	/**
-	 *
-	 * @param string $ip
-	 * @return string
-	 */
-	public function resolveDnsAddr($ip = null)
-	{
-		if (is_null($ip))
-		{
-			$ip = $this->getIpAddress();
-		}
-		if ('127.0.0.1' == $ip)
-		{
-			return 'localhost';
-		}
-		return gethostbyaddr($ip);
-	}
+    /**
+     *
+     * @param string $ipAddress
+     * @return string
+     */
+    public function resolveDnsAddr($ipAddress = null)
+    {
+        if (is_null($ipAddress)) {
+            $ipAddress = $this->getIpAddress();
+        }
+        if ('127.0.0.1' == $ipAddress) {
+            return 'localhost';
+        }
+        return gethostbyaddr($ipAddress);
+    }
 }
