@@ -28,7 +28,11 @@
         <models>
             <customerregip>
                 <class>Netzarbeiter_CustomerRegIp_Model</class>
+                <resourceModel>customerregip_resource</resourceModel>
             </customerregip>
+            <customerregip_resource>
+                <class>Netzarbeiter_CustomerRegIp_Model_Resource</class>
+            </customerregip_resource>
         </models>
         <blocks>
             <customerregip>
@@ -44,7 +48,7 @@
             <customerregip_setup>
                 <setup>
                     <module>Netzarbeiter_CustomerRegIp</module>
-                    <class>Mage_Eav_Model_Entity_Setup</class>
+                    <class>Mage_Customer_Model_Resource_Setup</class>
                 </setup>
             </customerregip_setup>
         </resources>
@@ -81,7 +85,7 @@
     <default>
         <customerregip>
             <general>
-                <ipinfodb_api_key></ipinfodb_api_key>
+                <ipinfodb_api_key><![CDATA[]]></ipinfodb_api_key>
             </general>
         </customerregip>
     </default>
